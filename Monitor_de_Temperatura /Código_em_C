@@ -2,6 +2,7 @@
 
 int main() {
 
+    // aqui estou declarando as variáveis
     float temperatura;
     float soma = 0;
     float maior = 0;
@@ -11,8 +12,10 @@ int main() {
     int alertas = 0;
     char saida[20];
 
+    // aqui é onde começa o laço de "do...while"
     do {
 
+        // pedindo para o usuário digitar um valor para a temperatura ou 'x' para sair
         printf("\nDigite a temperatura em °C");
         printf(" (ou digite x para sair): ");
         scanf("%s", saida);
@@ -21,11 +24,13 @@ int main() {
             break;
         }
 
+        // invalidando o que o usuário digitou caso não tenha digitado um número 
         if (sscanf(saida, "%f", &temperatura) != 1) {
             printf("Valor inválido! Digite uma temperatura numerica.\n");
             continue;
         }
 
+        // colocando a condição de não aceitar valores abaixo de zero absoluto
         if (temperatura < -273.15) {
 
             printf("Temperatura inválida!\n");
@@ -37,6 +42,7 @@ int main() {
         quantidade++;
         soma += temperatura;
 
+        // definindo a maior e a menor temperatura
         if (quantidade == 1) {
             maior = temperatura;
             menor = temperatura;
@@ -51,6 +57,7 @@ int main() {
             }
         }
 
+        // aqui é onde defino que a condição de alertar caso ultrapasse o limite
         if (temperatura > 80) {
 
             alertas++;
@@ -84,6 +91,7 @@ int main() {
         printf("Nenhuma temperatura válida foi informada.\n");
     }
 
+    // aqui é onde caso o usuário ultrapasse o limite 3 vezes consecutivas o programa se encerra
     if (alertas >= 3) {
 
         printf("\nForam registradas 3 temperaturas consecutivas acima de 80°C.\n");
